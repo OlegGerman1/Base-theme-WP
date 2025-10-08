@@ -1,0 +1,23 @@
+{
+    "name": "acf\/block-example",
+    "title": "Block Example",
+    "description": "",
+    "acf": {
+        "renderTemplate": "block.php",
+        "mode": "edit"
+    },
+    "supports": {
+        "anchor": true
+    },
+    "category": "custom-acf-blocks",
+    "icon": "block-default",
+    "align": "full",
+    "example": {
+      "attributes": {
+        "mode": "preview",
+        "data": {
+          "preview_image": "image.png"
+        }
+      }
+    }
+}
