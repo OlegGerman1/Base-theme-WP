@@ -76,9 +76,14 @@ function base_setup() {
 }
 add_action( 'after_setup_theme', 'base_setup' );
 
-add_filter( 'nav_menu_css_class', function ( $css_classes ) {
-    return str_replace( ['current-menu-item', 'current-menu-parent', 'current-menu-ancestor'], 'active', $css_classes );
-} );
+function change_menu_classes( $classes ) {
+    $active_classes = ['current-menu-item', 'current-menu-parent', 'current-menu-ancestor'];
+    if ( array_intersect( $active_classes, $classes ) ) {
+        $classes[] = 'active';
+    }
+    return $classes;
+}
+add_filter( 'nav_menu_css_class', 'change_menu_classes' );
 
 // Commented block below, because there may be errors with js, if need you can uncomment this block
 // add_filter( 'script_loader_tag', function ( $tag, $handle, $src ) {
